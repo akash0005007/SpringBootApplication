@@ -9,10 +9,14 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.codingstreams</groupId>
-	<artifactId>jwt-auth</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>jwt-auth</name>
+	<artifactId>SpringBootApplication</artifactId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	<name>SpringBootApplication</name>
 	<description>Demo project for Spring Boot JWT Authentication</description>
+	<modules>
+		<module>User</module>
+	</modules>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
