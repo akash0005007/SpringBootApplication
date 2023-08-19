@@ -14,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -29,7 +30,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         AppUser appUser = appUserRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException(username + " not found."));
 
-        var authorities = new ArrayList<GrantedAuthority>();
+        List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(appUser.getUserRole()));
 
         return new User(appUser.getUsername(), appUser.getPassword(), authorities);
@@ -58,3 +59,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return appUserRepository.save(appUser);
     }
 }
+

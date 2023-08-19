@@ -11,7 +11,7 @@ import java.util.Date;
 @Component
 public class JwtProvider {
     // Jwt Secret
-    private String jwtSecret="sIoVC8OFOgmxbk9XRYtY2zMKXuYXBGL2d3x1IV37";
+    private String jwtSecret = "sIoVC8OFOgmxbk9XRYtY2zMKXuYXBGL2d3x1IV37";
 
     // Jwt Expiration in millis
     private Long jwtExpiration = 60000L;
@@ -49,7 +49,7 @@ public class JwtProvider {
         Claims claims = parseToken(token);
 
         // Extract subject
-        if(claims != null){
+        if (claims != null) {
             return claims.getSubject();
         }
 
@@ -61,8 +61,8 @@ public class JwtProvider {
         Key key = Keys.hmacShaKeyFor(jwtSecret.getBytes());
 
         // Generate token
-        var currentDate = new Date();
-        var expiration = new Date(currentDate.getTime() + jwtExpiration);
+        Date currentDate = new Date();
+        Date expiration = new Date(currentDate.getTime() + jwtExpiration);
 
         return Jwts.builder()
                 .setSubject(username)
